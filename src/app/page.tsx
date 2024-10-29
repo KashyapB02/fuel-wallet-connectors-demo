@@ -1,15 +1,10 @@
-"use client";
+import { PageContent } from "@/component";
 
-import { NextPage } from "next";
-import { WalletConnector } from "@/component";
-
-const FuelWalletConnectorsDemo: NextPage = () => {
+export default function Page() {
   return (
-    <main className="w-full max-w-screen-2xl min-h-screen flex flex-col items-center justify-center px-2">
-      <h1 className="text-4xl font-bold tracking-wide mb-8">Fuel Wallet Connector Demo</h1>
-      <WalletConnector />
-    </main>
+    <div>
+      <div>Page</div>
+      <PageContent />
+    </div>
   );
-};
-
-export default FuelWalletConnectorsDemo;
+}

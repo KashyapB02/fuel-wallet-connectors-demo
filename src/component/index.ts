@@ -1,2 +1,4 @@
-export * from "./WalletConnector";
-export * from "./WalletProvider";
+export * from "./ConnectProvider";
+export * from "./FuelProviders";
+export * from "./PageContent";
+export * from "./Providers";

@@ -1,7 +1,10 @@
+import { Providers } from "@/component";
+import { DEFAULT_WAGMI_CONFIG } from "@/configs";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { cookieToInitialState } from "wagmi";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { WalletProvider } from "@/component";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +19,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { get } = headers();
+  const wagmiInitialState = cookieToInitialState(DEFAULT_WAGMI_CONFIG, get("cookie"));
+
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <WalletProvider>{children}</WalletProvider>
+        <Providers initialState={wagmiInitialState}>{children}</Providers>
       </body>
     </html>
   );
